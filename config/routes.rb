@@ -1,7 +1,12 @@
 WhatUpTwitter::Application.routes.draw do
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
-                   controllers: {omniauth_callbacks: "omniauth_callbacks"}
-  #devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"} do
+    get "/login" => "devise/sessions#new"
+    delete "/logout" => "devise/sessions#destroy"
+  end
+
+  get '/dashboard' => 'dashboard#index', :as => :dashboard
+  root :to => redirect('/dashboard')
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
