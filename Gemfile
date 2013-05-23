@@ -1,38 +1,42 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'haml-rails'
+gem 'twitter-bootstrap-rails'
+gem 'simple_form'
 
 gem 'pg'
 
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+group :development do
+  # User-friendly object printing
+  gem 'awesome_print'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+  # Use jshint for javascript format checking
+  gem 'jshint_on_rails'
+  gem 'guard-jshint-on-rails'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+  # Use Guard + Addons for automated test runs
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'growl'
+  gem 'rb-fsevent' # guard dependency
 
-# Deploy with Capistrano
-# gem 'capistrano'
+  gem 'quiet_assets' # supress log entries for assets in dev
 
-# To use debugger
-# gem 'debugger'
+  # better error pages in dev
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
