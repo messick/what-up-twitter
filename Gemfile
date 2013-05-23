@@ -40,3 +40,22 @@ group :development do
   gem 'binding_of_caller'
 end
 
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', '2.0.0'
+
+  # Generating faked data or objects
+  gem 'factory_girl_rails'
+  gem 'faker'
+
+  # Pry for debug
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'pry-remote' # connect to pry remotely when running foreman
+end
+
+group :test, :development do
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
