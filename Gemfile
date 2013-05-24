@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
+gem "grackle"
 
 gem 'pg'
 
