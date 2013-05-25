@@ -67,12 +67,10 @@ GEM
       railties (>= 3.0.0)
     faker (1.1.1)
       i18n (~> 0.5)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
     ffi (1.8.1)
     formatador (0.2.4)
-    grackle (0.3.0)
-      json
-      mime-types
-      oauth
     growl (1.0.3)
     guard (1.8.0)
       formatador (>= 0.2.4)
@@ -118,6 +116,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     multi_json (1.7.3)
+    multipart-post (1.2.0)
     oauth (0.4.7)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
@@ -200,6 +199,7 @@ GEM
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    simple_oauth (0.2.0)
     slop (3.4.5)
     spork (0.9.2)
     sprockets (2.2.2)
@@ -212,6 +212,10 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    twitter (4.6.2)
+      faraday (~> 0.8, < 0.10)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.2)
     twitter-bootstrap-rails (2.2.6)
       actionpack (>= 3.1)
       execjs
@@ -235,7 +239,6 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
-  grackle
   growl
   guard
   guard-jshint-on-rails
@@ -258,5 +261,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   shoulda-matchers (= 2.0.0)
   simple_form
+  twitter
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
