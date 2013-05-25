@@ -11,6 +11,8 @@ class TwitterClient
   end
 
   def search_tweets term
-    @client.search.tweets.json? q: term, count: 20, lang: 'en'
+    Rails.cache.fetch(term, :expires_in => 5.minute) do
+      @client.search.tweets.json? q: term, count: 20, lang: 'en'
+    end
   end
 end

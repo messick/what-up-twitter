@@ -5,6 +5,7 @@ gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem "grackle"
+gem "dalli"
 
 gem 'pg'
 

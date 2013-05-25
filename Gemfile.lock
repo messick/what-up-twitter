@@ -41,6 +41,7 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.0.9)
     columnize (0.3.6)
+    dalli (2.6.3)
     database_cleaner (0.8.0)
     debug_inspector (0.0.2)
     debugger (1.2.4)
@@ -228,6 +229,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
+  dalli
   database_cleaner
   devise
   factory_girl_rails
