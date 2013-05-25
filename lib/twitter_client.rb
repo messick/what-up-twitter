@@ -24,7 +24,7 @@ class TwitterClient
 
   def get_tweet_from_id id
     Rails.cache.fetch(id, :expires_in => 5.minutes) do
-      @client.oembed(id, omit_script: true) 
+      @client.oembed(id)
     end
   end
 

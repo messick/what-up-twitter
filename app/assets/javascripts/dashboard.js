@@ -3,9 +3,11 @@
 
 $(document).ready(function () {
   $('#new_search').bind('ajax:success', function (e, data, status) {
-    console.log('success');
+    container = $('.tweet-container');
+
+    container.empty();
     $.each(data, function(index, value) {
-      $('.tweet-container').append(value.html);
+      container.append(value.html);
     });
   });
 });
