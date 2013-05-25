@@ -20,6 +20,10 @@ end
 
 gem 'jquery-rails'
 
+group :production do
+  gem 'memcachier' # for memory caching on Heroku
+end
+
 group :development do
   # User-friendly object printing
   gem 'awesome_print'
