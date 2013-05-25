@@ -3,7 +3,6 @@ class TwitterClient
   attr_accessor :client
 
   def initialize(token, secret)
-    })
     @client = Twitter::Client.new(
       consumer_key: ENV['TWITTER_CONSUMER_KEY'],
       consumer_secret: ENV['TWITTER_CONSUMER_SECRET'],
@@ -13,8 +12,20 @@ class TwitterClient
   end
 
   def search_tweets term
-    Rails.cache.fetch(term, :expires_in => 5.minute) do
-      @client.search.tweets.json? q: term, count: 20, lang: 'en'
+    # grab list of ids statuses return by search, and cache
+    ids_from_search = Rails.cache.fetch(term, :expires_in => 5.minutes) do
+      @client.search(term, count: 20, lang: 'en').results.map(&:id)
+    end
+
+    # now we have ids, iterate through and get oembed info for each tweet, and cache
+    tweets = []
+    tweets = ids_from_search.map{|tweet_id| get_tweet_from_id tweet_id }
+  end
+
+  def get_tweet_from_id id
+    Rails.cache.fetch(id, :expires_in => 5.minutes) do
+      @client.oembed(id, omit_script: true) 
     end
   end
+
 end
