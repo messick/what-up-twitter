@@ -2,12 +2,6 @@
 
 %h3= link_to "@#{current_user.username}", users_path(@current_user.username)
 
-
-.profile-search
-  = form_tag '#', :id => :profile_search, :remote => true do |f|
-    = text_field_tag :username
-    = submit_tag :search
-
 .search
   = form_tag :searches_term, :id => :new_search, :remote => true do |f|
     = text_field_tag :term, @term
@@ -15,3 +9,5 @@
 .loader
   = image_tag '/assets/ajax-loader.gif'
 .tweet-container
+  - @results.each do |tweet|
+    = tweet.html.html_safe
