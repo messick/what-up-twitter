@@ -11,7 +11,7 @@ class TwitterClient
     )
   end
 
-  def search_tweets term
+  def search_term term
     # grab list of ids statuses return by search, and cache
     ids_from_search = Rails.cache.fetch(term, :expires_in => 5.minutes) do
       @client.search(term, count: 20, lang: 'en').results.map(&:id)
