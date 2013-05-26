@@ -15,4 +15,7 @@
           %li{ class: params[:controller] == 'dashboard' ? :active : '' }= link_to 'Dashboard', dashboard_path
           %li{ class: params[:controller] == 'users' ? :active : '' }= link_to 'Profile', users_path(current_user.username)
           %li= link_to 'Logout', logout_path, :method => :delete
+      %h3
+        Search Time:
+        %span{ id: :search_time }= @time.to_s(:rfc822)
       = yield

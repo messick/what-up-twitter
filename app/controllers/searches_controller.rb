@@ -3,9 +3,7 @@ class SearchesController < ApplicationController
   before_filter :get_twitter_client
 
   def term
-    current_user.update_last_search_term params[:term]
-
-    results = @client.search_term params[:term]
+    results = @client.search_term params[:term], current_user.id
 
     render :json => results
 

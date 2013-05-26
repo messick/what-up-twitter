@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 
   def show
     @username = params[:username]
-    @results = @client.search_user @username
+
+    response = @client.search_user @username
+
+    @results = response[:tweets]
+    @time = Time.parse(response[:searchTime]).utc
   end
 end

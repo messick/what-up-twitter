@@ -6,14 +6,16 @@
 $(document).ready(function () {
   $container = $('.tweet-container');
   $loader = $('.loader');
-
-  $('#profile_search').bind('submit', function(e) {
-    username = $(e.currentTarget).find('#username').val();
-    window.location = '/users/' + username
-  });
-
+  $searchTime = $('#search_time');
 
   $('#new_search').bind('ajax:before', function(e, data, status) {
+
+    // if we're doing the profile search, change the browser URL
+    username = $(e.currentTarget).find('#username').val();
+    if (username !== undefined) {
+      history.pushState('data', '', username);
+    }
+
     $container.css('display', 'none');
     $container.empty();
     $loader.css('display', 'block');
@@ -22,9 +24,10 @@ $(document).ready(function () {
 
   $('#new_search').bind('ajax:success', function(e, data, status) {
     $loader.css('display', 'none');
-    $.each(data, function(index, value) {
+    $.each(data.tweets, function(index, value) {
       $container.append(value.html);
     });
+    $searchTime.html(data.searchTime);
     $container.css('display', 'inline-block');
   });
 });

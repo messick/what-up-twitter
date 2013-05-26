@@ -4,6 +4,10 @@ class DashboardController < ApplicationController
 
   def index
     @term = current_user.last_search_term.nil? ? 'social' : current_user.last_search_term
-    @results = @client.search_term @term
+
+    response = @client.search_term @term, current_user.id
+
+    @results = response[:tweets]
+    @time = Time.parse(response[:searchTime]).utc
   end
 end
