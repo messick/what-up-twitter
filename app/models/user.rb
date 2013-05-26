@@ -4,7 +4,13 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :omniauthable
 
-  attr_accessible :email, :password
+  with_options :presence => true do |inner|
+    inner.validates :provider
+    inner.validates :uid
+    inner.validates :username
+    inner.validates :token
+    inner.validates :secret
+  end
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
