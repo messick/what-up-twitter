@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526001556) do
-
-  create_table "searches", :force => true do |t|
-    t.string   "term"
-    t.datetime "last_cached_at"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130526054022) do
 
   create_table "users", :force => true do |t|
     t.integer  "sign_in_count",      :default => 0
