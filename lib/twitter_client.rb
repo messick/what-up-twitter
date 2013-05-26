@@ -1,7 +1,5 @@
 class TwitterClient
 
-  attr_accessor :client
-
   def initialize(token, secret)
     @client = Twitter::Client.new(
       consumer_key: ENV['TWITTER_CONSUMER_KEY'],
