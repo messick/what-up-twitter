@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    addressable (2.3.4)
     arel (3.0.2)
     awesome_print (1.1.0)
     bcrypt-ruby (3.0.1)
@@ -41,6 +42,7 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.0.9)
     columnize (0.3.6)
+    crack (0.3.2)
     dalli (2.6.3)
     database_cleaner (0.8.0)
     debug_inspector (0.0.2)
@@ -224,8 +226,12 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    vcr (2.5.0)
     warden (1.2.1)
       rack (>= 1.0)
+    webmock (1.11.0)
+      addressable (>= 2.2.7)
+      crack (>= 0.3.2)
 
 PLATFORMS
   ruby
@@ -264,3 +270,5 @@ DEPENDENCIES
   twitter
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  vcr
+  webmock

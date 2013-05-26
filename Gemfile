@@ -59,6 +59,9 @@ group :test, :development do
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-remote' # connect to pry remotely when running foreman
+
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :test, :development do
