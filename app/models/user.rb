@@ -27,16 +27,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def password_required?
-    super && provider.blank?
+  def update_last_search_term term
+    self.last_search_term = term
+    self.save
   end
-
-  def update_with_password(params, *options)
-    if encrypted_password.blank?
-      update_attributes(params, *options)
-    else
-      super
-    end
-  end
-
 end

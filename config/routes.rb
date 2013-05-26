@@ -4,7 +4,9 @@ WhatUpTwitter::Application.routes.draw do
     delete "/logout" => "devise/sessions#destroy"
   end
 
-  resources :searches
+  post '/searches/term' => 'searches#term', :as => :searches_term
+  post '/searches/user' => 'searches#user', :as => :searches_user
+  get '/users/:username' => 'users#show', :as => :users
 
   get '/dashboard' => 'dashboard#index', :as => :dashboard
   root :to => redirect('/dashboard')

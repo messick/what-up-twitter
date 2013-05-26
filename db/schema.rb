@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130524040557) do
+ActiveRecord::Schema.define(:version => 20130526001556) do
 
   create_table "searches", :force => true do |t|
     t.string   "term"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20130524040557) do
     t.string   "username"
     t.string   "token"
     t.string   "secret"
+    t.string   "last_search_term"
   end
 
 end

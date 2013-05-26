@@ -1,9 +1,17 @@
 %h4 Dashboard
 
-%h3 @#{current_user.username}
+%h3= link_to "@#{current_user.username}", users_path(@current_user.username)
+
+
+.profile-search
+  = form_tag '#', :id => :profile_search, :remote => true do |f|
+    = text_field_tag :username
+    = submit_tag :search
 
 .search
-  = simple_form_for @search, :remote => true do |f|
-    = f.input :term
-    = f.submit :search
+  = form_tag :searches_term, :id => :new_search, :remote => true do |f|
+    = text_field_tag :term, @term
+    = submit_tag :search
+.loader
+  = image_tag '/assets/ajax-loader.gif'
 .tweet-container

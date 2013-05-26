@@ -1,0 +1,9 @@
+.search
+  = form_tag :searches_user, :id => :new_search, :remote => true do |f|
+    = text_field_tag :username, @username
+    = submit_tag :search
+.loader
+  = image_tag '/assets/ajax-loader.gif'
+.tweet-container
+  = @results.each do |tweet|
+    = tweet.html.html_safe
