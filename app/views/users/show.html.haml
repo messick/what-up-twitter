@@ -1,7 +1,7 @@
 .search
-  = form_tag :searches_user, :id => :new_search, :remote => true do |f|
-    = text_field_tag :username, @username
-    = submit_tag :search
+  = form_tag :searches_user, :id => :new_search, class: 'form-search', :remote => true do |f|
+    = text_field_tag :username, @username, class: 'input-medium search-query'
+    = submit_tag :search, class: 'btn'
 .loader
   = image_tag '/assets/ajax-loader.gif'
 .tweet-container
